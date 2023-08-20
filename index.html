@@ -42,19 +42,24 @@
             width: 100%;
             height: auto;
             position: absolute;
-            top: 25%;
-            left: 0;
+            inset: 0;
+            margin-top: 5%;
             z-index: -1;
         }
 
         ul {
-            font-size: 1.2em;
+            font-size: 1.1em;
             background: white;
             padding: .5em;
             border: 1px solid black;
             list-style-position: inside;
             border-radius: 1em;
             position: relative;
+            max-width: 22%;
+        }
+
+        li {
+            margin-bottom: .5em;
         }
 
         ul::after {
@@ -77,8 +82,8 @@
         <li><a href="./scroll-animation.html">Scroll-driven animation (no Firefox or Safari)</a></li>
         <li><a href="./trig.html">Trig functions</a></li>
         <li><a href="./transforms.html">Individual transform rules</a></li>
-        <li><a href="./nesting.html">Nesting</a></li>
         <li><a href="./container-queries.html">Container queries</a></li>
+        <li><a href="./nesting.html">Nesting</a> (In progress!)</li>
 
     </ul>
     <script>

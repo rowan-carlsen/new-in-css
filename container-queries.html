@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TITLE</title>
+    <title>Container Queries: Game Rankings</title>
     <style>
         * {
             box-sizing: border-box;
@@ -16,9 +16,121 @@
             --color4: #30BFBF;
             --color5: #0799BA;
         }
+
+        body {
+            font-family: sans-serif;
+            background: #ccf;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            border: 2px solid black;
+            padding: 1em;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 1em;
+        }
+
+        h3 {
+            margin: 0;
+            grid-column: span 2;
+        }
+
+        ol>li::marker {
+            font-size: 1.5em;
+            transform: translateY(-1em);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+            display: flex;
+            flex-flow: column;
+            gap: 1em;
+        }
+
+        ul>li {
+            color: white;
+            padding: .5em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .good {
+            background: green;
+        }
+
+        .bad {
+            background: red;
+        }
+
+        /* Demo styles begin */
+        .card {
+            container-type: inline-size;
+        }
+
+        @container(DIMENSIONS) {
+            /* styles */
+        }
     </style>
 </head>
 <body>
+    <h1>The Definitive Final Fantasy Ranking</h1>
+    <h2>The Best:</h2>
+    <div class="card">
+        <h3>Final Fantasy 7</h3>
+        <img src="https://images.pushsquare.com/66fc6d83f261c/final-fantasy-vii-ps1-box-art-us.large.jpg" />
+        <ul>
+            <li class="good">The greatest story ever told - (Me, 12 years old)</li>
+            <li class="good">Cutting edge 1997 graphics</li>
+            <li class="good">Clearly the biggest sword/kitchen knife</li>
+        </ul>
+    </div>
+    <h2>The Rest:</h2>
+    <ol start="10">
+        <li>
+            <div class="card">
+                <h3>Final Fantasy 12</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/27/Final_Fantasy_XII_Box_Art.png" />
+                <ul>
+                    <li class="good">Some nice innovations in gameplay</li>
+                    <li class="bad">RANDOM loot - Why???</li>
+                    <li class="bad">Questionable fashion choices (more than usual)</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="card">
+                <h3>Final Fantasy 10</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Ffxboxart.jpg" />
+                <ul>
+                    <li class="good">Looks pretty</li>
+                    <li class="bad">Characters all bad (except Auron)</li>
+                    <li class="bad">Blitzball</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="card">
+                <h3>Final Fantasy 8</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/Final_Fantasy_8_ntsc-front.jpg" />
+                <ul>
+                    <li class="good">Has a card game</li>
+                    <li class="bad">Bewildering and nonsensical plot</li>
+                    <li class="bad">Draw. Draw. Draw. Draw. Draw. (Ad nauseam)</li>
+                </ul>
+            </div>
+        </li>
+    </ol>
+
     <script>
     </script>
 </body>
