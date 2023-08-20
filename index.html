@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New in CSS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color1: #F17D28;
+            --color2: #F19C1B;
+            --color3: #ECD711;
+            --color4: #30BFBF;
+            --color5: #0799BA;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        html {
+            background: black;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 25%;
+            left: 0;
+            z-index: -1;
+        }
+
+        ul {
+            font-size: 1.2em;
+            background: white;
+            padding: .5em;
+            border: 1px solid black;
+            list-style-position: inside;
+            border-radius: 1em;
+            position: relative;
+        }
+
+        ul::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0px 0px 0px 100px var(--color1), 0px 0px 0px 200px var(--color2), 0px 0px 0px 300px var(--color3), 0px 0px 0px 400px var(--color4), 0px 0px 0px 1000px var(--color5);
+            border-radius: 1em;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <img src="./assets/goths-pointing.png" width="1416" height="1062" />
+    <ul>
+        <li><a href="./has.html">:has (no Firefox)</a></li>
+        <li><a href="./scroll-animation.html">Scroll-driven animation (no Firefox or Safari)</a></li>
+        <li><a href="./trig.html">Trig functions</a></li>
+        <li><a href="./transforms.html">Individual transform rules</a></li>
+        <li><a href="./nesting.html">Nesting</a></li>
+        <li><a href="./container-queries.html">Container queries</a></li>
+
+    </ul>
+    <script>
+    </script>
+</body>
+</html>

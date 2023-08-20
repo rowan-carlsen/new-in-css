@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation: Setting Sun</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color1: #F17D28;
+            --color2: #F19C1B;
+            --color3: #ECD711;
+            --color4: #30BFBF;
+            --color5: #0799BA;
+        }
+
+        body {
+            margin: 0;
+            height: 300vh;
+            position: relative;
+        }
+
+        svg {
+            width: auto;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+        /*Demo CSS below here*/
+        #sky {
+            --darkRatio: .2;
+        }
+
+        #ground {
+            --darkRatio: .4;
+        }
+
+        #sun {
+            animation: set 10s linear;
+            animation-timeline: scroll(y root);
+        }
+
+        #moon {
+            animation: set 10s linear reverse;
+        }
+
+        #sky,
+        #ground {
+            animation: darken 10s linear;
+        }
+
+        /* 
+        #sun,
+        #moon,
+        #sky,
+        #ground {
+            animation-timeline: scroll(y root);
+        } */
+        @keyframes darken {
+            30% {
+                filter: none;
+            }
+
+            50%,
+            100% {
+                filter: brightness(var(--darkRatio));
+            }
+        }
+
+        @keyframes set {
+
+            50%,
+            100% {
+                transform: translateY(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 1000">
+        <defs>
+            <linearGradient id="ground-gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="green"></stop>
+                <stop offset="100%" stop-color="#003300"></stop>
+            </linearGradient>
+            <style>
+                #sky {
+                    fill: #7cd5f8;
+                }
+
+                #ground {
+                    fill: url(#ground-gradient);
+                }
+
+                #moon {
+                    filter: drop-shadow(0px 0px 20px white);
+                }
+            </style>
+        </defs>
+        <rect id="sky" class="animate" x="0" y="0" width="3000" height="1000"></rect>
+        <g id="sun" class="animate">
+            <polygon points="300 100, 500 100, 500 300, 300 300" fill="yellow" />
+            <polygon transform-origin="400 200" transform="rotate(45)" points="300 100, 500 100, 500 300, 300 300"
+                fill="yellow" />
+            <circle cx="400" cy="200" r="100" fill="orange"></circle>
+        </g>
+        <path id="moon" class="animate" d="M600 100 A 50 50  0 0 1 550 200 A 65 65 0 0 0 600 100" fill="white"
+            stroke="white" stroke-width="2" />
+        <rect id="ground" class="animate" x="0" y="500" width="3000" height="500"></rect>
+    </svg>
+    <script>
+    </script>
+</body>
+</html>

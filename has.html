@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:has Character Creation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        :root {
+            --color1: #F17D28;
+            --color2: #F19C1B;
+            --color3: #ECD711;
+            --color4: #30BFBF;
+            --color5: #0799BA;
+        }
+
+        body {
+            font-family: sans-serif;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            background-color: #1a1a1a;
+            color: white;
+            padding: .5em 0 0 .5em;
+        }
+
+        h1 {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        #class-holder {
+            display: flex;
+            gap: .5em;
+        }
+
+        .class {
+            padding: .5em;
+            font-size: 1.2em;
+            flex-grow: 1;
+            border: 2px solid white;
+            display: flex;
+            flex-flow: column;
+            gap: 1em;
+        }
+
+        #stats-holder {
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
+
+        #pool {
+            grid-column: span 2;
+        }
+
+        #pool,
+        .assigned {
+            display: flex;
+            gap: 20px;
+            padding: 1em;
+            min-height: 4em;
+        }
+
+        .stat-name {
+            padding: .5em;
+        }
+
+        .assigned {
+            border: 1px solid white;
+            cursor: pointer;
+        }
+
+        .point {
+            width: 15px;
+            height: 25px;
+            background: red;
+        }
+
+        input {
+            width: 1.5em;
+            height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Character Creation</h1>
+    <h2>Class:</h2>
+    <div id="class-holder">
+        <div class="class">
+            <label>
+                Warrior
+                <input type="radio" name="class">
+            </label>
+            <label>
+                Variant: Paladin
+                <input type="checkbox">
+            </label>
+        </div>
+        <div class="class">
+            <label>
+                Mage
+                <input type="radio" name="class">
+            </label>
+            <label>
+                Variant: Druid
+                <input type="checkbox">
+            </label>
+        </div>
+        <div class="class">
+            <label>
+                Rogue
+                <input type="radio" name="class">
+            </label>
+            <label>
+                Variant: Bard
+                <input type="checkbox">
+            </label>
+        </div>
+    </div>
+    <h2>Stats:</h2>
+    <div id="stats-holder">
+        <div id="pool">
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+
+        </div>
+        <h3 class="stat-name">Strength</h3>
+        <div class="assigned"></div>
+        <h3 class="stat-name">Agility</h3>
+        <div class="assigned"></div>
+        <h3 class="stat-name">Intelligence</h3>
+        <div class="assigned"></div>
+        <h3 class="stat-name">Luck</h3>
+        <div class="assigned"></div>
+    </div>
+    <!--use :has(:checked) to style container that have checkboxes? maybe some kind of dashboard or electronic panel?-->
+    <script>
+        const assigned = document.querySelectorAll('.assigned'),
+            pool = document.getElementById('pool');
+        assigned.forEach(el => el.addEventListener('click', movePoints));
+
+        function movePoints(e) {
+            const targ = e.currentTarget;
+            let availablePoint = pool.querySelector('.point');
+            if (availablePoint) {
+                targ.appendChild(availablePoint);
+                return;
+            }
+            availablePoint = targ.querySelector('.point');
+            if (availablePoint) {
+                pool.appendChild(availablePoint);
+            }
+        }
+    </script>
+</body>
+</html>

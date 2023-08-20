@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Transforms: Mario</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color1: #F17D28;
+            --color2: #F19C1B;
+            --color3: #ECD711;
+            --color4: #30BFBF;
+            --color5: #0799BA;
+        }
+
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            background: skyblue;
+        }
+
+        button {
+            font-size: 1.2em;
+            padding: .5em 1em;
+        }
+
+        /*Demo styles below*/
+        #mario {
+            width: 60px;
+            height: auto;
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            animation: move 5s linear infinite;
+            transform-origin: bottom;
+        }
+
+        /* #mario.flip {
+            transform: rotateY(180deg);
+        } */
+        /* #mario.mushroom {
+            transform: scale(1.2);
+        } */
+        @keyframes move {
+            20% {
+                transform: translate(200px, 0px);
+            }
+
+            30% {
+                transform: translate(300px, -200px);
+            }
+
+            40% {
+                transform: translate(400px, 0px)
+            }
+
+            60%,
+            100% {
+                transform: translate(600px, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img id="mario" src="./assets/mario.webp" />
+    <button id="mushroom">Mushroom</button>
+    <button id="flip">Flip</button>
+    <script>
+        const mushroomBtn = document.getElementById('mushroom'), flipBtn = document.getElementById('flip'), mario = document.getElementById('mario');
+        mushroomBtn.addEventListener('click', growMario);
+        flipBtn.addEventListener('click', flipMario);
+        function growMario() {
+            mario.classList.toggle('mushroom');
+        }
+        function flipMario() {
+            mario.classList.toggle('flip');
+        }
+    </script>
+</body>
+</html>
